@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./Header/Header";
+import { StyledContainer } from "./StyledContainer/StyledContainer";
+import { Main } from "./Main/Main";
+import { useEffect, useState } from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledContainer>
+      <Header />
+      <Main />
+    </StyledContainer>
   );
 }
 
 export default App;
+
+/*  useEffect(() => {
+  async function getData() {
+    let res = await fetch(
+      "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json"
+    );
+    let a = await res.json();
+    let resp = await a.filter(
+      (item) => item.cc === "USD" || item.cc === "EUR"
+    );
+    setCurrencies(resp);
+  }
+  getData();
+ }, []);*/
